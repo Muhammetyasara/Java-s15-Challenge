@@ -7,14 +7,33 @@ import java.time.LocalDate;
 
 public class Magazine extends Book {
 
+    private String publishMonth;
+
     public Magazine(long id,
                     Author author,
                     String name,
                     double price,
                     BookStatus status,
                     String edition,
-                    LocalDate purchaseDate,
-                    Person owner) {
-        super(id, author, name, price, status, edition, purchaseDate, owner, BookCategory.MAGAZINE);
+                    String publishMonth
+    ) {
+        super(id, author, name, price, status, edition, BookCategory.MAGAZINE);
+        this.publishMonth = publishMonth;
+    }
+
+    public String getPublishMonth() {
+        return publishMonth;
+    }
+
+    public void setPublishMonth(String publishMonth) {
+        this.publishMonth = publishMonth;
+    }
+
+    @Override
+    public void display() {
+        System.out.println("'" + getName() + "' is a magazine published in " + publishMonth
+                + ", written by " + getAuthor().getName()
+                + ". Edition: " + getEdition()
+                + ". Price: " + getPrice() + " TL. Status: " + getStatus());
     }
 }

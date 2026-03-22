@@ -2,7 +2,6 @@ package com.workintech.library.model;
 
 import com.workintech.library.enums.BookCategory;
 import com.workintech.library.enums.BookStatus;
-import jdk.jshell.Snippet;
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -16,7 +15,6 @@ public abstract class Book {
     private BookStatus status;
     private String edition;
     private LocalDate purchaseDate;
-    private Person owner;
     private BookCategory bookCategory;
 
     public Book(long id,
@@ -25,8 +23,6 @@ public abstract class Book {
                 double price,
                 BookStatus status,
                 String edition,
-                LocalDate purchaseDate,
-                Person owner,
                 BookCategory bookCategory) {
         this.id = id;
         this.author = author;
@@ -34,8 +30,7 @@ public abstract class Book {
         this.price = price;
         this.status = status;
         this.edition = edition;
-        this.purchaseDate = purchaseDate;
-        this.owner = owner;
+        this.purchaseDate = LocalDate.now();
         this.bookCategory = bookCategory;
     }
 
@@ -95,14 +90,6 @@ public abstract class Book {
         this.purchaseDate = purchaseDate;
     }
 
-    public Person getOwner(){
-        return owner;
-    }
-
-    public void setOwner(Person owner){
-        this.owner = owner;
-    }
-
     public BookCategory getBookCategory() {
         return bookCategory;
     }
@@ -133,10 +120,8 @@ public abstract class Book {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, author, name, price, status, edition, purchaseDate);
+        return Objects.hash(id);
     }
 
-    public void display(){
-        System.out.println(toString());
-    }
+    public abstract void display();
 }
