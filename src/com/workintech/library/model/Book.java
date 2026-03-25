@@ -14,7 +14,7 @@ public abstract class Book {
     private double price;
     private BookStatus status;
     private String edition;
-    private LocalDate purchaseDate;
+    private final LocalDate purchaseDate;
     private BookCategory bookCategory;
 
     public Book(long id,
@@ -24,14 +24,14 @@ public abstract class Book {
                 BookStatus status,
                 String edition,
                 BookCategory bookCategory) {
-        this.id = id;
-        this.author = author;
-        this.name = name;
-        this.price = price;
-        this.status = status;
-        this.edition = edition;
+        this.setId(id);
+        this.setAuthor(author);
+        this.setName(name);
+        this.setPrice(price);
+        this.setStatus(status);
+        this.setEdition(edition);
         this.purchaseDate = LocalDate.now();
-        this.bookCategory = bookCategory;
+        this.setBookCategory(bookCategory);
     }
 
     public long getId() {
@@ -80,14 +80,6 @@ public abstract class Book {
 
     public void setEdition(String edition) {
         this.edition = edition;
-    }
-
-    public LocalDate getPurchaseDate() {
-        return purchaseDate;
-    }
-
-    public void setPurchaseDate(LocalDate purchaseDate) {
-        this.purchaseDate = purchaseDate;
     }
 
     public BookCategory getBookCategory() {

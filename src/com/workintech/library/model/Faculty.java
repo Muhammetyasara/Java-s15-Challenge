@@ -2,7 +2,7 @@ package com.workintech.library.model;
 
 import com.workintech.library.enums.MemberType;
 
-public class Faculty extends Reader{
+public class Faculty extends Reader {
 
     private String department;
 
@@ -12,8 +12,8 @@ public class Faculty extends Reader{
                    String phoneNo,
                    String department
     ) {
-        super(name, id, MemberType.STUDENT, address, phoneNo);
-        this.department = department;
+        super(name, id, MemberType.FACULTY, address, phoneNo);
+        this.setDepartment(department);
     }
 
     public String getDepartment() {
@@ -25,7 +25,7 @@ public class Faculty extends Reader{
     }
 
     @Override
-    public String whoYouAre(){
-        return "I'm a faculty. My name is" + getName();
+    public String whoYouAre() {
+        return "This is a faculty. Faculty name is " + getName() + ", department is " + getDepartment();
     }
 }

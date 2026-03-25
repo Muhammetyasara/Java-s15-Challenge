@@ -3,8 +3,6 @@ package com.workintech.library.model;
 import com.workintech.library.enums.BookCategory;
 import com.workintech.library.enums.BookStatus;
 
-import java.time.LocalDate;
-
 public class Journal extends Book {
 
     private String researchArea;
@@ -18,7 +16,7 @@ public class Journal extends Book {
                    String researchArea
     ) {
         super(id, author, name, price, status, edition, BookCategory.JOURNAL);
-        this.researchArea = researchArea;
+        this.setResearchArea(researchArea);
     }
 
     public String getResearchArea() {

@@ -3,8 +3,6 @@ package com.workintech.library.model;
 import com.workintech.library.enums.BookCategory;
 import com.workintech.library.enums.BookStatus;
 
-import java.time.LocalDate;
-
 public class Magazine extends Book {
 
     private String publishMonth;
@@ -18,7 +16,7 @@ public class Magazine extends Book {
                     String publishMonth
     ) {
         super(id, author, name, price, status, edition, BookCategory.MAGAZINE);
-        this.publishMonth = publishMonth;
+        this.setPublishMonth(publishMonth);
     }
 
     public String getPublishMonth() {

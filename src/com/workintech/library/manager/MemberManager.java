@@ -1,40 +1,47 @@
 package com.workintech.library.manager;
 
-import com.workintech.library.model.MemberRecord;
 import com.workintech.library.model.Reader;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class MemberManager {
+public class MemberManager implements IManageable<Reader> {
 
     private Map<Long, Reader> members = new HashMap<>();
 
-    public void addMember(Reader member) {
-        if (!members.containsKey(member.getMemberRecord().getId()))
+    @Override
+    public void add(Reader member) {
+        if (!members.containsKey(member.getMemberRecord().getId())) {
             members.put(member.getMemberRecord().getId(), member);
+            System.out.println("Member added successfully");
+        } else {
+            System.out.println("Member already exist with that id.");
+        }
     }
 
-    public void removeMember(long id){
+    @Override
+    public void remove(long id) {
         members.remove(id);
     }
 
-    public Reader findById(long id){
-        if (!members.containsKey(id)){
-            System.out.println("There is no member with id!");
+    @Override
+    public Reader findById(long id) {
+        if (!members.containsKey(id)) {
+            //System.out.println("There is no member with id!");
             return null;
         }
 
         return members.get(id);
     }
 
-    public void listAll(){
-        if (members.isEmpty()){
+    @Override
+    public void listAll() {
+        if (members.isEmpty()) {
             System.out.println("No members in the system.");
             return;
         }
 
-        for (Reader member: members.values()){
+        for (Reader member : members.values()) {
             System.out.println(member.getMemberRecord().getMember());
         }
     }

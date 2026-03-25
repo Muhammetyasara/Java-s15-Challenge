@@ -18,7 +18,7 @@ public class Librarian extends Person {
                      BorrowManager borrowManager
     ) {
         super(name);
-        this.password = password;
+        this.setPassword(password);
         this.bookManager = bookManager;
         this.memberManager = memberManager;
         this.borrowManager = borrowManager;
@@ -57,6 +57,7 @@ public class Librarian extends Person {
         reader.getMemberRecord().decBooksIssued();
         System.out.println("Book returned successfully. 1 cash refunded to "
                 + reader.getName() + ". Current cash: " + reader.getMemberRecord().getCash());
+        System.out.println("Member with id: " + memberId + " successfully return book with id: " + bookId);
     }
 
     public Reader verifyMember(long id) {
@@ -88,7 +89,7 @@ public class Librarian extends Person {
 
         borrowManager.issueBook(reader, book);
         calculateBill(reader);
-        System.out.println("Book issued successfully.");
+        System.out.println("Member with id: " + memberId + " successfully borrow book with id: " + bookId);
     }
 
     public void calculateBill(Reader reader) {

@@ -9,12 +9,12 @@ public class MemberRecord {
 
     private long id;
     private MemberType memberType;
-    private LocalDate dateOfMembership;
+    private final LocalDate dateOfMembership;
     private int noBooksIssued;
     private final static int maxBookLimit = 5;
     private String address;
     private String phoneNo;
-    public int cash;
+    private int cash;
 
 
     public MemberRecord(long id,
@@ -23,11 +23,11 @@ public class MemberRecord {
                         String phoneNo
     ) {
         this.id = id;
-        this.memberType = memberType;
+        this.setMemberType(memberType);
         this.dateOfMembership = LocalDate.now();
         this.noBooksIssued = 0;
-        this.address = address;
-        this.phoneNo = phoneNo;
+        this.setAddress(address);
+        this.setPhoneNo(phoneNo);
         this.cash = 5;
     }
 
@@ -45,14 +45,6 @@ public class MemberRecord {
 
     public void setMemberType(MemberType memberType) {
         this.memberType = memberType;
-    }
-
-    public LocalDate getDateOfMembership() {
-        return dateOfMembership;
-    }
-
-    public void setDateOfMembership(LocalDate dateOfMembership) {
-        this.dateOfMembership = dateOfMembership;
     }
 
     public int getNoBooksIssued() {

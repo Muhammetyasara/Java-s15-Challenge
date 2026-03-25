@@ -3,8 +3,6 @@ package com.workintech.library.model;
 import com.workintech.library.enums.BookCategory;
 import com.workintech.library.enums.BookStatus;
 
-import java.time.LocalDate;
-
 public class StudyBook extends Book {
 
     private String subject;
@@ -18,7 +16,7 @@ public class StudyBook extends Book {
                      String subject
     ) {
         super(id, author, name, price, status, edition, BookCategory.STUDYBOOK);
-        this.subject = subject;
+        this.setSubject(subject);
     }
 
     public String getSubject() {

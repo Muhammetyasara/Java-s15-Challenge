@@ -1,17 +1,17 @@
-package com.workintech.library.enums;
+    package com.workintech.library.enums;
 
-public enum MemberType {
+    public enum MemberType {
 
-    STUDENT("Student"),
-    FACULTY("Faculty");
+        STUDENT("Student"),
+        FACULTY("Faculty");
 
-    private final String status;
+        private final String status;
 
-    MemberType(String status) {
-        this.status = status;
+        MemberType(String status) {
+            this.status = status;
+        }
+
+        public String getStatus(){
+            return status;
+        }
     }
-
-    public String getStatus(){
-        return status;
-    }
-}

@@ -4,7 +4,6 @@ import com.workintech.library.enums.MemberType;
 
 public class Student extends Reader {
 
-    private MemberRecord memberRecord;
     private int studentNumber;
 
     public Student(String name,
@@ -12,7 +11,7 @@ public class Student extends Reader {
                    String address,
                    String phoneNo,
                    int studentNumber
-                   ) {
+    ) {
         super(name, id, MemberType.STUDENT, address, phoneNo);
         this.studentNumber = studentNumber;
     }
@@ -27,6 +26,6 @@ public class Student extends Reader {
 
     @Override
     public String whoYouAre() {
-        return "I'm a student. My name is" + getName();
+        return "I'm a student. My name is " + getName() + ", my student number is " + getStudentNumber();
     }
 }
