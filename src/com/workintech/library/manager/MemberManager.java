@@ -1,5 +1,6 @@
 package com.workintech.library.manager;
 
+import com.workintech.library.model.MemberRecord;
 import com.workintech.library.model.Reader;
 
 import java.util.HashMap;
@@ -41,8 +42,10 @@ public class MemberManager implements IManageable<Reader> {
             return;
         }
 
-        for (Reader member : members.values()) {
-            System.out.println(member.getMemberRecord().getMember());
-        }
+        members.values().
+                forEach(member ->
+                        System.out.println(
+                                member.getMemberRecord().getMember())
+                );
     }
 }

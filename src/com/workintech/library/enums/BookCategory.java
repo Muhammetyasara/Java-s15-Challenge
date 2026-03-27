@@ -11,7 +11,6 @@ public enum BookCategory {
     BookCategory(String category) {
         this.category = category;
     }
-
     public String getCategory(){
         return category;
     }

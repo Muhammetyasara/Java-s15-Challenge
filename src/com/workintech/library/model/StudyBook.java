@@ -29,7 +29,7 @@ public class StudyBook extends Book {
 
     @Override
     public void display() {
-        System.out.println("'" + getName() + "' is a study book written by " + getAuthor().getName()
+        System.out.println("'" + getName() + "' is a " + getBookCategory().getCategory() + " written by " + getAuthor().getName()
                 + ". It covers the subject of " + subject
                 + ". Edition: " + getEdition()
                 + ". Price: " + getPrice() + " TL. Status: " + getStatus());
